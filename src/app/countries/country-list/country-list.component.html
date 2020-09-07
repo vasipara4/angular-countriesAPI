@@ -1,0 +1,48 @@
+<h4>{{ title }}</h4>
+<!-- 
+<mat-radio-group class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active" (click)="chooseCountries('All')">
+    <mat-radio-button    name="options" id="option1" autocomplete="off" checked> All
+  </label>
+  <label class="btn btn-secondary" (click)="chooseCountries('Africa')">
+    <mat-button-toggle    name="options" id="option2" autocomplete="off"> Africa
+  </label>
+  <label class="btn btn-secondary" (click)="chooseCountries('Americas')">
+    <imat-button-togglenput    name="options" id="option3" autocomplete="off"> Americas
+  </label>
+  <label class="btn btn-secondary" (click)="chooseCountries('Asia')">
+    <mat-button-toggle    name="options" id="option4" autocomplete="off"> Asia
+  </label>
+  <label class="btn btn-secondary" (click)="chooseCountries('Europe')">
+    <mat-button-toggle    name="options" id="option5" autocomplete="off"> Europe
+  </label>
+  <label class="btn btn-secondary" (click)="chooseCountries('Oceania')">
+    <mat-button-toggle    name="options" id="option6" autocomplete="off"> Oceania
+  </label>
+  <label class="btn btn-secondary"  (click)="chooseCountries('Others')">
+    <mat-button-toggle    name="options" id="option7" autocomplete="off"> Others
+  </label>
+</mat-radio-group> -->
+
+<!-- <mat-radio-group aria-label="Select an option">
+  <mat-radio-button value="1">Option 1</mat-radio-button>
+  <mat-radio-button value="2">Option 2</mat-radio-button>
+</mat-radio-group> -->
+
+
+  <mat-radio-group>
+    <mat-radio-button *ngFor="let region of listRegion" [checked]="region.name === 'All'" [id]="region.ID" [value]="region.name" name="regionList"  (click)="chooseCountries(region.name)" style="margin-left: 15px;" >{{region.name }} </mat-radio-button>
+  </mat-radio-group>
+  
+
+
+<div id="wrapper">
+  <div class="card cards-margin" style="width: 18rem" *ngFor="let country of countriesToShow">
+    <img [src]="country.flag" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ country.name }}</h5>
+      <p class="card-text">Capital: {{ country.capital }}</p>
+      <p class="card-text">Region: {{ country.region }}</p>
+    </div>
+  </div>
+</div>
